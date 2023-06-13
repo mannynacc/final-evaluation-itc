@@ -1,0 +1,55 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: "Formula1";
+  src: url("/fonts/Formula1/Formula1-Regular.ttf");
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: "Formula1";
+  src: url("/fonts/Formula1/Formula1-Bold.ttf");
+  font-weight: 700;
+}
+
+@font-face {
+  font-family: "Hauora";
+  src: url("/fonts/Hauora/Hauora-Light.ttf");
+  font-weight: 100;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Hauora";
+  src: url("/fonts/Hauora/Hauora-Regular.ttf");
+  font-weight: 200;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Hauora";
+  src: url("/fonts/Hauora/Hauora-Medium.ttf");
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Hauora";
+  src: url("/fonts/Hauora/Hauora-SemiBold.ttf");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Hauora";
+  src: url("/fonts/Hauora/Hauora-Bold.ttf");
+  font-weight: 500;
+  font-style: normal;
+}
+
+html {
+  overflow-x: hidden;
+  overflow-y: hidden;
+}
