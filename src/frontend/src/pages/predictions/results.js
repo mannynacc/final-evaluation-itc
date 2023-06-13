@@ -1,20 +1,30 @@
 import { HeaderF1 } from "@/components/Header"
 import ResultCard from "@/components/ResultCard"
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { useRouter } from "next/router"
 
 export default function Results() {
   const router = useRouter()
   const { jsonData } = router.query
-  const parsedData = JSON.parse(jsonData)
-  const [responseData] = useState(parsedData)
+  const [responseData, setResponseData] = useState([])
+
+  useEffect(() => {
+    if (jsonData) {
+      const parsedData = JSON.parse(jsonData)
+      setResponseData(parsedData)
+    }
+  }, [jsonData])
+
+  if (!responseData) {
+    return null // or show a loading indicator/error message
+  }
 
   return (
     <div className="flex flex-col bg-white bg-cover h-screen px-8 py-3 text-black">
       <HeaderF1 />
       <div className="flex h-full flex-col font-hauora py-5">
         <h2 className="text-4xl font-bold font-formula1 mb-10">Resultados</h2>
-        {responseData && (
+        {responseData.length > 0 && (
           <div>
             <h3>Circuito: </h3>
             <span>{responseData[0].race}</span>
