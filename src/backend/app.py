@@ -19,11 +19,17 @@ def predict_position():
         return_data = []
 
         for p in prediction:
+            driver_separeted = p[0].split(" ")
+            driver_name = driver_separeted[0]
+            driver_lastname = driver_separeted[1]
+            driver_prediction_formatted = "{:.2f}".format(p[1] * 100)
+            driver_pit_stop_time_formatted = "{:.3f}".format(p[3])
             predict_json = {
-                "driver": p[0], 
-                "prediction": p[1], 
+                "driver_name": driver_name, 
+                "driver_lastname": driver_lastname,
+                "prediction": driver_prediction_formatted, 
                 "race": p[2],
-                "pit_stop_time": p[3]
+                "pit_stop_time": driver_pit_stop_time_formatted
             }
             return_data.append(predict_json)
 
