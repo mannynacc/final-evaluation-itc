@@ -1,13 +1,5 @@
 version: "3"
 services:
-  frontend:
-    container_name: frontend
-    build:
-      context: ./frontend
-      dockerfile: Dockerfile
-    volumes:
-      - /home/ubuntu/ssl:/etc/nginx/certs
-
   backend:
     restart: always
     container_name: backend
