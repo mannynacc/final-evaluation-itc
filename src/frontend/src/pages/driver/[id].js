@@ -7,20 +7,46 @@ export default function Page({ driver }) {
     Router.back()
   }
 
+const Card = ({ title, value }) => (
+  <div className="flex justify-between">
+    <p className="font-semibold">{title}:</p>
+    <p className="text-right">{value}</p>
+  </div>
+);
+
+  
+
   return (
     <div className="flex flex-col bg-white bg-cover h-screen px-8 py-3 text-black max-w-lg mx-auto">
       <HeaderF1 />
       <div className="flex h-full flex-col font-hauora py-5">
-        <div className="flex justify-between items-start mb-10">
+        <div className="flex justify-between items-center mb-10">
           <h2 className="text-4xl font-bold font-formula1">Driver info</h2>
-          <button onClick={goBackButton}>Go back</button>
+          <button  onClick={goBackButton}>{`\u2190`} Go back</button>
         </div>
-        {driver && (
-          <div className="text-black">
-            <h3>Driver: </h3>
-            <span>{driver.id}</span>
-          </div>
-        )}
+          <img
+          src={driver.img_url}
+          alt={driver.img_url}
+          className="w-48 h-48 object-cover inline-block mb-1"
+        />
+        <div className="grid grid-cols-1 gap-y-4 mx-2 border border-slate-50 p-4 rounded-xl font-formula1 shadow-xl">
+          {driver && (
+            <div className="text-black text-sm space-y-2">
+              <Card title="Nombre" value={driver.name + " " + driver.lastname}  />
+              <Card title="Piloto" value={driver.id} />
+              <Card title="Equipo" value={driver.team} />
+              <Card title="País" value={driver.country} />
+              <Card title="Podios" value={driver.podiums} />
+              <Card title="Puntos" value={driver.points} />
+              <Card title="Grand Prix Ingresados" value={driver.grands_prix_entered} />
+              <Card title="Campeonatos Mundiales" value={driver.world_championships} />
+              <Card title="Mejor Posición" value={driver.highest_race_finish} />
+              <Card title="Mejor Posición en parilla" value={driver.highest_grid_position} />
+              <Card title="Fecha nacimiento" value={driver.date_of_birth} />
+              <Card title="Lugar nacimiento" value={driver.place_of_birth} />
+            </div>
+          )}
+        </div>
       </div>
     </div>
   )
@@ -76,3 +102,4 @@ export async function getStaticPaths() {
     fallback: false,
   }
 }
+

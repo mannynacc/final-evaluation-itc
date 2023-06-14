@@ -3,6 +3,7 @@ import ResultCard from "@/components/ResultCard"
 import { useState, useEffect } from "react"
 import { useRouter } from "next/router"
 
+
 export default function Results() {
   const router = useRouter()
   const { jsonData } = router.query
@@ -23,11 +24,12 @@ export default function Results() {
     <div className="flex flex-col bg-white bg-cover h-screen px-8 py-3 text-black max-w-lg mx-auto">
       <HeaderF1 />
       <div className="flex h-full flex-col font-hauora py-5">
-        <h2 className="text-4xl font-bold font-formula1 mb-10">Resultados</h2>
+        <h2 className="text-4xl font-bold font-formula1 mb-4">Resultados</h2>
+        
         {responseData.length > 0 && (
-          <div>
-            <h3>Circuito: </h3>
-            <span>{responseData[0].race}</span>
+          <div className="my-4">
+            <h3 className="font-normal text-lg font-formula1 text-gray-500">Circuito: </h3>
+            <span className="font-normal font-formula1">{responseData[0].race}</span>
           </div>
         )}
         <div className="overflow-y-auto">
