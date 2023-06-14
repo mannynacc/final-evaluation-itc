@@ -20,7 +20,7 @@ export default function Results() {
   }
 
   return (
-    <div className="flex flex-col bg-white bg-cover h-screen px-8 py-3 text-black">
+    <div className="flex flex-col bg-white bg-cover h-screen px-8 py-3 text-black max-w-lg mx-auto">
       <HeaderF1 />
       <div className="flex h-full flex-col font-hauora py-5">
         <h2 className="text-4xl font-bold font-formula1 mb-10">Resultados</h2>
@@ -34,9 +34,10 @@ export default function Results() {
           {responseData.map((data, i) => (
             <ResultCard
               key={i}
-              driver_id={data.driver_id}
+              driver_img_url={data.driver_img_url}
               driver_name={data.driver_name}
               driver_lastname={data.driver_lastname}
+              driver_id={data.driver_id}
               pit_stop_time={data.pit_stop_time}
               prediction={data.prediction}
             />

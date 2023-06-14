@@ -2,7 +2,7 @@ import { HeaderF1 } from "@/components/Header"
 
 export default function Rules() {
   return (
-    <div className="flex flex-col bg-white bg-cover h-screen px-8 py-3 text-black">
+    <div className="flex flex-col bg-white bg-cover h-screen px-8 py-3 text-black max-w-lg mx-auto">
       <HeaderF1 />
       <div className="flex h-full flex-col font-hauora py-5">
         <h2 className="text-4xl font-bold font-formula1 mb-3">

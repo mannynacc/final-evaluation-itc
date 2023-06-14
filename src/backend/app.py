@@ -1,10 +1,14 @@
 from flask import Flask, Blueprint, request, jsonify
 from flask_cors import CORS
 import winner_predictor
+import driversInfo
 
 app = Flask(__name__)
 CORS(app)
 api = Blueprint('api', __name__)
+
+drivers = driversInfo.drivers
+
 
 
 @api.route('/predict',methods=['POST'])
@@ -19,6 +23,9 @@ def predict_position():
         return_data = []
 
         for p in prediction:
+            driver_info = drivers.get(p[0])
+            driver_id = driver_info["id"]
+            driver_img_url = driver_info["img_url"]
             driver_separeted = p[0].split(" ")
             driver_name = driver_separeted[0]
             driver_lastname = driver_separeted[1]
@@ -27,7 +34,9 @@ def predict_position():
             predict_json = {
                 "driver_name": driver_name, 
                 "driver_lastname": driver_lastname,
-                "prediction": driver_prediction_formatted, 
+                "prediction": driver_prediction_formatted,
+                "driver_id": driver_id,
+                "driver_img_url": driver_img_url, 
                 "race": p[2],
                 "pit_stop_time": driver_pit_stop_time_formatted
             }
