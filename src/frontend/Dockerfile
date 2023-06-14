@@ -19,6 +19,9 @@ COPY ./ ./
 # Build app
 RUN npm run build
 
+# Set permissions for the cache directory
+RUN chown -R node:node .next/cache
+
 # Expose the listening port
 EXPOSE 3000
 
