@@ -29,7 +29,7 @@ export default async function handler(req, res) {
     const { race } = req.body
 
     try {
-      const response = await axios.post("http://127.0.0.1:5050/predict", {
+      const response = await axios.post("http://127.0.0.1:5000/api/predict", {
         race,
       })
       const jsonData = response.data
