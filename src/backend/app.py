@@ -9,8 +9,6 @@ api = Blueprint('api', __name__)
 
 drivers = driversInfo.drivers
 
-
-
 @api.route('/predict',methods=['POST'])
 def predict_position():
     _json = request.json
@@ -49,26 +47,39 @@ def predict_position():
         resp.status_code = 400
         return resp
 
-@api.route('/submit', methods=['POST'])
-def handle_submit():
-    if request.method == "POST":
-        first_name = request.form['firstName']
-        last_name = request.form['lastName']
-        job = request.form['job']
-        print(f'first name : {first_name}')
-        print(f'last name : {last_name}')
-        print(f'job : {job}')
+@api.route('/driver/<int:id>',methods=['GET'])
+def get_driver_info(id):
+    driver_info = None
 
-        # do your processing logic here.
+    for driver in drivers:
+        if drivers[driver]['id'] == id:
+            driver_info = drivers[driver]
+            break
+    if driver_info:
+        return_data = {
+            "id": driver_info['id'],
+            "img_url": driver_info['img_url'],
+            "team": driver_info['team'],
+            "country": driver_info['country'],
+            "podiums": driver_info['podiums'],
+            "points": driver_info['points'],
+            "grands_prix_entered": driver_info['grands_prix_entered'],
+            "world_championships": driver_info['world_championships'],
+            "highest_race_finish": driver_info['highest_race_finish'],
+            "highest_grid_position": driver_info['highest_grid_position'],
+            "date_of_birth": driver_info['date_of_birth'],
+            "place_of_birth": driver_info['place_of_birth'],
+            "biography": driver_info['biography']
+        }
 
-        return jsonify({
-            "firstName": first_name,
-            "lastName": last_name,
-            "job": job
-        })
+        return jsonify(return_data)
+    else:
+        resp = jsonify({'msg' : 'Bad Request - no driver found'})
+        resp.status_code = 404
+        return resp
 
 
 app.register_blueprint(api, url_prefix='/api')
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', debug=True, port=5000)
+    app.run(debug=True, port=5050)
