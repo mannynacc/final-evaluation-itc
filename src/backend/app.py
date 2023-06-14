@@ -7,7 +7,7 @@ CORS(app)
 api = Blueprint('api', __name__)
 
 
-@app.route('/predict',methods=['POST'])
+@api.route('/predict',methods=['POST'])
 def predict_position():
     _json = request.json
     race = _json["race"]
@@ -62,4 +62,4 @@ def handle_submit():
 app.register_blueprint(api, url_prefix='/api')
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', debug=True, port=5050)
+    app.run(host='0.0.0.0', debug=True, port=5000)

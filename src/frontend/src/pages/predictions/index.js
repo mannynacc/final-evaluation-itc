@@ -24,7 +24,7 @@ export default function Predictions() {
     event.preventDefault()
 
     try {
-      const response = await axios.post("/api/prediction", {
+      const response = await axios.post("api/predict", {
         race,
       })
       const jsonData = response.data
