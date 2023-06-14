@@ -50,13 +50,20 @@ def predict_position():
 @api.route('/driver/<int:id>',methods=['GET'])
 def get_driver_info(id):
     driver_info = None
+    driver_fullname = None
 
     for driver in drivers:
         if drivers[driver]['id'] == id:
             driver_info = drivers[driver]
+            driver_fullname = driver
             break
+    
     if driver_info:
+        driver_name = driver_fullname.split(" ")[0]
+        driver_lastname = driver_fullname.split(" ")[1]
         return_data = {
+            "name": driver_name,
+            "lastname": driver_lastname,
             "id": driver_info['id'],
             "img_url": driver_info['img_url'],
             "team": driver_info['team'],
@@ -82,4 +89,4 @@ def get_driver_info(id):
 app.register_blueprint(api, url_prefix='/api')
 
 if __name__ == '__main__':
-    app.run(debug=True, port=5050)
+    app.run(host='0.0.0.0', debug=True, port=5000)
