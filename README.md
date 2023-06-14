@@ -1,28 +1,17 @@
-## Deploy your Secure React App with Docker and Nginx
+# Evaluación Final ITC
 
-<p align="center">
-    <img src="./images/docker-secure.png" width="80%">
-</p>
+Prototipo para la Expo Ingenio en la Evaluación Final de ITC.
 
-Learn more about this project via this <a href="">article</a>.
+Web app para GP Italia 2023.
 
-### Description
+Consulta las reglas de la Fórmula 1 y predice los resultados de las carreras.
 
-This is a boilerplate code I played with to learn about Docker, deployment and SSL encryption.
+Creado con:
+- Next.js
+- Flask
+- Nginx
+- Docker
 
-It covers:
+Corriendo en Oracle Cloud Infrastructure.
 
-- Building a simple React front-end using the Material-UI library
-- Designing a Flask API that receives data from the front-end
-- Setting up a domain name and an SSL certificate with Nginx
-- Configuring an AWS instance with a static IP and a domain name
-- Deployment using docker-compose
-
-The goal is to learn how these components interact with each other.
-
-### Screenshot of the app
-
-<p align="center">
-    <img src="./images/app.png" width="80%">
-</p>
-# final-evaluation-itc
+Tec de Monterrey Campus Guadalajara. Junio 2023.
