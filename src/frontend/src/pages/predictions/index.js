@@ -77,6 +77,7 @@ export default function Predictions() {
         </form>
         {selectedImage && (
           <Image
+            priority
             src={selectedImage}
             alt={race}
             className="mt-5"

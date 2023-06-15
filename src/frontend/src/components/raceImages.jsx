@@ -9,6 +9,7 @@ const RaceImages = ({ selectedRace }) => {
     <div>
       {race && (
         <Image
+          priority
           src={race.imageUrl}
           alt="Race Image"
           className="my-5"

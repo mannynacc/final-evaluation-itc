@@ -37,7 +37,7 @@ function ResultCard({
               {pit_stop_time}s
             </span>
           </div>
-          <span className="text-sm">More info {`\u2192`}</span>
+          <span className="text-sm">Mas info {`\u2192`}</span>
         </div>
       </div>
     </Link>

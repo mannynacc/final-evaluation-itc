@@ -22,6 +22,7 @@ export default function Welcome() {
               Powered by
             </span>
             <Image
+              priority
               alt="Oracle logo"
               src={oracleLogo}
               className="flex h-8 w-auto mt-[-3px]"

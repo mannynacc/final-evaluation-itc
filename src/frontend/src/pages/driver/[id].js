@@ -20,10 +20,11 @@ export default function Page({ driver }) {
       <HeaderF1 />
       <div className="flex h-full flex-col font-hauora py-5">
         <div className="flex justify-between items-center mb-10">
-          <h2 className="text-4xl font-bold font-formula1">Driver info</h2>
-          <button onClick={goBackButton}>{`\u2190`} Go back</button>
+          <h2 className="text-4xl font-bold font-formula1">Info Piloto</h2>
+          <button onClick={goBackButton}>{`\u2190`} Ir atras</button>
         </div>
         <Image
+          priority
           src={driver.img_url}
           alt={driver.img_url}
           width={200}

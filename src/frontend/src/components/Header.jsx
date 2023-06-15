@@ -7,7 +7,7 @@ export const HeaderF1 = () => {
   return (
     <div className="flex text-white h-16 items-center justify-between">
       <Link href="/home">
-        <Image alt="" src={f1Logo} className="h-6 w-auto flex" />
+        <Image priority alt="" src={f1Logo} className="h-6 w-auto flex" />
       </Link>
     </div>
   )
@@ -17,7 +17,7 @@ export const HeaderF1Red = () => {
   return (
     <div className="flex text-white h-16 items-center justify-between">
       <Link href="/home">
-        <Image alt="" src={f1LogoRed} className="h-6 w-auto flex" />
+        <Image priority alt="" src={f1LogoRed} className="h-6 w-auto flex" />
       </Link>
     </div>
   )
