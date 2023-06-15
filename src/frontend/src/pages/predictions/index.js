@@ -4,6 +4,7 @@ import { circuits } from "@/data/circuits"
 import { tracks } from "../../json/raceData.js"
 import axios from "axios"
 import { useRouter } from "next/router"
+import Image from "next/image.js"
 
 export default function Predictions() {
   const [race, setRace] = useState("")
@@ -75,7 +76,13 @@ export default function Predictions() {
           </div>
         </form>
         {selectedImage && (
-          <img src={selectedImage} alt={race} className="mt-5" />
+          <Image
+            src={selectedImage}
+            alt={race}
+            className="mt-5"
+            width={500}
+            height={500}
+          />
         )}
       </div>
     </div>

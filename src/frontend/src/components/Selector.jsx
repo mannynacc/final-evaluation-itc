@@ -1,3 +1,5 @@
+import Image from "next/image"
+
 export const Selector = ({
   height = "1/2",
   title,
@@ -9,8 +11,11 @@ export const Selector = ({
       className={`bg-slate-100 rounded-xl h-${height} py-5 px-8 bg-no-repeat bg-[length:90%_auto] bg-[${bgPosition}] relative overflow-hidden`}
     >
       <span className="text-gray-950 text-3xl font-formula1">{title}</span>
-      <img
+      <Image
         src={`/images/${imgFile}`}
+        width={300}
+        height={300}
+        priority
         alt=""
         className="absolute right-0 bottom-0 object-cover md:max-w-[65%]"
       />

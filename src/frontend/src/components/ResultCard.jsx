@@ -1,3 +1,4 @@
+import Image from "next/image"
 import Link from "next/link"
 
 function ResultCard({
@@ -13,9 +14,12 @@ function ResultCard({
       <div className="bg-black rounded-2xl text-white p-2 px-6 my-2">
         <div className="flex border-b-2 border-white mb-3">
           <div className="w-full mb-1">
-            <img
+            <Image
+              priority
               src={driver_img_url}
               alt={driver_img_url}
+              width={80}
+              height={100}
               className="w-20 h-24 object-cover inline-block mb-1"
             />
 
@@ -24,13 +28,16 @@ function ResultCard({
           </div>
           <p className="text-6xl mt-2">{driver_id}</p>
         </div>
-        <div className="mb-2">
-          <span className="bg-green-300 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2">
-            {prediction}%
-          </span>
-          <span className="bg-white rounded-full px-3 py-1 text-sm font-semibold text-black mr-2">
-            {pit_stop_time}s
-          </span>
+        <div className="mb-2 flex justify-between">
+          <div>
+            <span className="bg-green-300 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2">
+              {prediction}%
+            </span>
+            <span className="bg-white rounded-full px-3 py-1 text-sm font-semibold text-black mr-2">
+              {pit_stop_time}s
+            </span>
+          </div>
+          <span className="">More info {`\u2192`}</span>
         </div>
       </div>
     </Link>
